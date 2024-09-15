@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Fibonacci Sequence Checker</h1>
+    <input type="number" id="fibonacciInput" placeholder="Enter a number">
+    <button onclick="checkFibonacci()">Check</button>
+</div>
+
+<script>
+    function checkFibonacci() {
+        let num = parseInt(document.getElementById('fibonacciInput').value); //user input
+        let a = 0, b = 1, next = 0;
+
+        //fibonacci check
+        if (num === 0 || num === 1) {
+            alert(`The number ${num} belongs to the Fibonacci sequence.`);
+            return;
+        }
+
+        while (next < num) {
+            next = a + b;
+            a = b;
+            b = next;
+        }
+
+        if (next === num) {
+            alert(`The number ${num} belongs to the Fibonacci sequence.`);
+        } else {
+            alert(`The number ${num} does NOT belong to the Fibonacci sequence.`);
+        }
+    }
+</script>
+
+</body>
+</html>
